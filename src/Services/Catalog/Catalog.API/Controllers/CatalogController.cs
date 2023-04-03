@@ -1,5 +1,6 @@
 ﻿using Catalog.API.Entities;
 using Catalog.API.Repositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace Catalog.API.Controllers
 {
     [ApiController]
+    [EnableCors("CorsPolicy")]
     [Route("api/v1/[controller]")]
     public class CatalogController : ControllerBase
     {
@@ -44,8 +46,8 @@ namespace Catalog.API.Controllers
             return Ok(product);
         }
 
-        [Route("[action]/{category}", Name = "GetProductByCategory")]
         [HttpGet]
+        [Route("[action]/{category}", Name = "GetProductByCategory")]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string category)
         {

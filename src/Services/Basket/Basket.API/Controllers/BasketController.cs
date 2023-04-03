@@ -1,5 +1,6 @@
 ﻿using Basket.API.Entities;
 using Basket.API.Repositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace Basket.API.Controllers
 {
     [ApiController]
+    [EnableCors("CorsPolicy")]
     [Route("api/v1/[controller]")]
     public class BasketController : ControllerBase
     {
