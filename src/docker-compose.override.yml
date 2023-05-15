@@ -9,7 +9,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - '/mongo_data:/data/db'
+      - './mongo_data:/data/db'
   
   basketdb:
     container_name: basketdb
@@ -73,23 +73,23 @@ services:
 
 #Extra image ENV ->
 
-  pgadmin:
-    container_name: pgadmin
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@ecomm.com
-      - PGADMIN_DEFAULT_PASSWORD=admin1234
-    restart: always
-    ports:
-        - "5050:80"
-    volumes:
-      - '/pgadmin_data:/root/.pgadmin'
+  #pgadmin:
+  #  container_name: pgadmin
+  #  environment:
+  #    - PGADMIN_DEFAULT_EMAIL=admin@ecomm.com
+  #    - PGADMIN_DEFAULT_PASSWORD=admin1234
+  #  restart: always
+  #  ports:
+  #      - "5050:80"
+  #  volumes:
+  #    - '/pgadmin_data:/root/.pgadmin'
 
-  portainer:
-    container_name: portainer
-    restart: always
-    ports:
-      - "8080:8000"
-      - "9000:9000"
-    volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
-      - '/portainer_data:/data:rwx'
+  #portainer:
+  #  container_name: portainer
+  #  restart: always
+  #  ports:
+  #    - "8080:8000"
+  #    - "9000:9000"
+  #  volumes:
+  #    - '/var/run/docker.sock:/var/run/docker.sock'
+  #    - '/portainer_data:/data:rwx'

@@ -41,14 +41,14 @@ services:
   
 #Extra image config ->
   
-  pgadmin:
-    image: dpage/pgadmin4
+  #pgadmin:
+  #  image: dpage/pgadmin4
 
-  portainer:
-    image: portainer/portainer-ce
+  #portainer:
+  #  image: portainer/portainer-ce
 
 volumes:
   mongo_data:
   postgres_data:
-  pgadmin_data:
-  portainer_data:
+  #pgadmin_data:
+  #portainer_data:
