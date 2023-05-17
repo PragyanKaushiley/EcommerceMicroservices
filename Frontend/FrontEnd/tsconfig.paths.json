@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "@Img": [
+                "src/App/Assets/Img/*"
+            ],
+            "@Components": [
+                "src/App/Components/*"
+            ],
+            "@Hooks": [
+                "src/App/Hooks/*"
+            ],
+            "@Services": [
+                "src/App/Services/*"
+            ],
+            "@Store": [
+                "src/App/Store/*"
+            ],
+            "@Utils": [
+                "src/App/Utils/*"
+            ],
+            "@Views": [
+                "src/App/Views/*"
+            ],
+        },
+    },
+}
