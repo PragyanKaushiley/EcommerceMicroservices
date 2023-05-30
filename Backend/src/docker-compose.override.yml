@@ -9,7 +9,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - './mongo_data:/data/db'
+      - mongo_data:/data/db
   
   basketdb:
     container_name: basketdb
@@ -27,7 +27,7 @@ services:
     ports:
         - "5432:5432"
     volumes:
-      - 'postgres_data:/var/lib/postgresql/data/'
+      - postgres_data:/var/lib/postgresql/data/
     
 #API image ENV ->
 
@@ -35,7 +35,7 @@ services:
     container_name: catalog.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings__ConnectionString=mongodb://catalogdb:27017"
+      - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
     depends_on:
       - catalogdb
     ports:
@@ -44,8 +44,8 @@ services:
   basket.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "CacheSettings__ConnectionString=basketdb:6379"
-      - "GrpcSettings__DiscountUrl=http://discount.grpc"
+      - "CacheSettings:ConnectionString=basketdb:6379"
+      - "GrpcSettings:DiscountUrl=http://discount.grpc"
     depends_on:
       - basketdb
     ports:
@@ -73,23 +73,23 @@ services:
 
 #Extra image ENV ->
 
-  #pgadmin:
-  #  container_name: pgadmin
-  #  environment:
-  #    - PGADMIN_DEFAULT_EMAIL=admin@ecomm.com
-  #    - PGADMIN_DEFAULT_PASSWORD=admin1234
-  #  restart: always
-  #  ports:
-  #      - "5050:80"
-  #  volumes:
-  #    - '/pgadmin_data:/root/.pgadmin'
+  pgadmin:
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@ecomm.com
+      - PGADMIN_DEFAULT_PASSWORD=admin1234
+    restart: always
+    ports:
+        - "5050:80"
+    volumes:
+      - /pgadmin_data:/root/.pgadmin
 
-  #portainer:
-  #  container_name: portainer
-  #  restart: always
-  #  ports:
-  #    - "8080:8000"
-  #    - "9000:9000"
-  #  volumes:
-  #    - '/var/run/docker.sock:/var/run/docker.sock'
-  #    - '/portainer_data:/data:rwx'
+  portainer:
+    container_name: portainer
+    restart: always
+    ports:
+      - "8080:8000"
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /portainer_data:/data
