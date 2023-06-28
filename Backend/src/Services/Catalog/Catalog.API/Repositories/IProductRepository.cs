@@ -1,6 +1,6 @@
 ﻿using Catalog.API.Entities;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Catalog.API.Repositories
 {

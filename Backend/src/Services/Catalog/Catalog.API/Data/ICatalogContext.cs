@@ -1,5 +1,5 @@
-﻿using MongoDB.Driver;
-using Catalog.API.Entities;
+﻿using Catalog.API.Entities;
+using MongoDB.Driver;
 
 namespace Catalog.API.Data
 {

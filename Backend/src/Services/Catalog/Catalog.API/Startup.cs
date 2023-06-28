@@ -23,7 +23,7 @@ namespace Catalog.API
         {
 
             services.AddControllers();
-            
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -50,7 +50,7 @@ namespace Catalog.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog.API v1"));
             }
-            
+
             app.UseRouting();
 
             app.UseAuthorization();
